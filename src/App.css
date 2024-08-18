@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+p {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    flex: 1;
+    text-align: center;
+  }
+
+  button {
+    all: unset;
+    cursor: pointer;
+  }
+}
