@@ -19,6 +19,8 @@ body {
 
 .wrapper {
   max-width: 480px;
+  width: calc(100% - 32px);
+  margin: 0 auto;
 
   text-align: center;
 }
