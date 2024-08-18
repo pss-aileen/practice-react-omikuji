@@ -26,7 +26,14 @@ function App() {
       return card;
     });
 
-    setRandomCards(newArray);
+    const newnewArray = [];
+
+    while (newArray[0]) {
+      const randomNumber = Math.floor(Math.random() * newArray.length);
+      newnewArray.push(newArray.splice(randomNumber, 1)[0]);
+    }
+
+    setRandomCards(newnewArray);
     console.log(randomCards);
   }
 
