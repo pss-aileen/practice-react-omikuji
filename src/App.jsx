@@ -14,55 +14,51 @@ function randomNumber() {
   return Math.floor(Math.random() * 4);
 }
 
-const initialArray = 1;
 console.log("outside App");
 
 function App() {
   const [randomCards, setRandomCards] = useState(initialRandomCards);
-  const [array, setArray] = useState(initialArray);
-  console.log("initial");
+  console.log("App Component Render");
 
-  function handleClickReset() {
-    setArray(Math.floor(Math.random() * 100));
-
-    const currentCards = randomCards;
-
-    const initialRandomCards = [];
-
-    while (currentCards[0]) {
-      const randomNumber = Math.floor(Math.random() * currentCards.length);
-      initialRandomCards.push(currentCards.splice(randomNumber, 1)[0]);
-    }
-
-    const newArray = initialRandomCards.map((card) => {
+  function reset() {
+    const newArray = randomCards.map((card) => {
       card.fliped = false;
-      card.result = "変化だ！";
       return card;
     });
 
-    console.log(newArray);
+    setRandomCards(newArray);
+    console.log(randomCards);
+  }
+
+  function flipNotice(result, result2) {
+    console.log("flipしたぞ", result, result2);
+    const newArray = randomCards.map((card) => {
+      if (card["id"] === result) {
+        card.fliped = result2;
+        return card;
+      }
+      return card;
+    });
 
     setRandomCards(newArray);
-    console.log("handleClickReset");
+    console.log(randomCards);
   }
 
   return (
     <div className="wrapper">
       <h1 style={{ color: randomCards[randomNumber()]["color"] }}>FORTUNE</h1>
 
-      {array}
-
       <ul>
         {randomCards.map((card) => {
           return (
             <li key={card.id}>
-              <Card result={card.result} backImageUrl={card.backImageUrl} frontImageUrl={card.frontImageUrl} color={card.color} backgroundColor={card.backgroundColor} fliped={card.fliped} />
+              <Card result={card.result} backImageUrl={card.backImageUrl} frontImageUrl={card.frontImageUrl} color={card.color} backgroundColor={card.backgroundColor} fliped={card.fliped} flipNotice={flipNotice} id={card.id} />
             </li>
           );
         })}
       </ul>
 
-      <button onClick={handleClickReset}>RESET</button>
+      <button onClick={reset}>りせっと</button>
 
       <footer>
         <p>

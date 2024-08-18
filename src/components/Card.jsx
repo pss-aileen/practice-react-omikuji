@@ -1,20 +1,17 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
-export default function Card({ result, backImageUrl, frontImageUrl, color, backgroundColor, fliped }) {
-  // const [isButtonActive, setIsButtonActive] = useState(false);
-  const [isButtonActive, setIsButtonActive] = useState(fliped);
+export default function Card({ result, backImageUrl, frontImageUrl, color, backgroundColor, fliped, flipNotice, id }) {
   function handleClick() {
-    setIsButtonActive((boolean) => (boolean ? false : true));
+    flipNotice(id, !fliped);
   }
 
   return (
     <button onClick={handleClick}>
       <div className="image-wrapper">
-        <img src={backImageUrl} alt="カード" width={300} height={440} className={isButtonActive ? "active" : ""} />
-        <img src={frontImageUrl} alt="カード" width={300} height={440} className={`back-image ${isButtonActive ? "active" : ""}`} />
+        <img src={backImageUrl} alt="カード" width={300} height={440} className={fliped ? "active" : ""} />
+        <img src={frontImageUrl} alt="カード" width={300} height={440} className={`back-image ${fliped ? "active" : ""}`} />
       </div>
-      <span className={isButtonActive ? "active" : ""} style={{ color: color, backgroundColor: backgroundColor }}>
+      <span className={fliped ? "active" : ""} style={{ color: color, backgroundColor: backgroundColor }}>
         {result}
       </span>
     </button>
@@ -28,4 +25,6 @@ Card.propTypes = {
   color: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   fliped: PropTypes.bool,
+  flipNotice: PropTypes.func,
+  id: PropTypes.number,
 };
