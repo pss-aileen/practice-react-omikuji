@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-  max-width: 640px;
+  max-width: 540px;
   margin: 0 auto;
 
   text-align: center;
@@ -29,15 +29,18 @@ ul {
     all: unset;
     cursor: pointer;
     position: relative;
-    user-select: none;
+
+    img {
+      pointer-events: none;
+    }
 
     span {
       opacity: 0;
       width: 94%;
-      font-size: 14px;
+      font-size: 10px;
       padding: 2px;
       position: absolute;
-      top: -32px;
+      top: -26px;
       left: 0;
       right: 0;
       margin: 0 auto;
