@@ -13,6 +13,7 @@ const cards = [
     frontImageUrl: card01,
     color: "#dc2626",
     backgroundColor: "#fee2e2",
+    fliped: false,
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const cards = [
     frontImageUrl: card02,
     color: "#ea580c",
     backgroundColor: "#ffedd5",
+    fliped: false,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const cards = [
     frontImageUrl: card03,
     color: "#0891b2",
     backgroundColor: "#cffafe",
+    fliped: false,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const cards = [
     frontImageUrl: card04,
     color: "#059669",
     backgroundColor: "#d1fae5",
+    fliped: false,
   },
   {
     id: 5,
@@ -45,14 +49,8 @@ const cards = [
     frontImageUrl: card05,
     color: "#7c3aed",
     backgroundColor: "#ede9fe",
+    fliped: false,
   },
 ];
 
-const randomCards = [];
-
-while (cards[0]) {
-  const randomNumber = Math.floor(Math.random() * cards.length);
-  randomCards.push(cards.splice(randomNumber, 1)[0]);
-}
-
-export default randomCards;
+export default cards;
