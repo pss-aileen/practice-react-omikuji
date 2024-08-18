@@ -1,7 +1,13 @@
-// import { useState } from 'react'
 import "./App.css";
 import Card from "./components/Card";
-import randomCards from "./utils/Cards";
+import cards from "./utils/Cards";
+
+const randomCards = [];
+
+while (cards[0]) {
+  const randomNumber = Math.floor(Math.random() * cards.length);
+  randomCards.push(cards.splice(randomNumber, 1)[0]);
+}
 
 function randomNumber() {
   return Math.floor(Math.random() * 4);
@@ -21,6 +27,8 @@ function App() {
           );
         })}
       </ul>
+
+      <button>RESET</button>
 
       <footer>
         <p>

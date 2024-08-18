@@ -48,11 +48,6 @@ const cards = [
   },
 ];
 
-const randomCards = [];
 
-while (cards[0]) {
-  const randomNumber = Math.floor(Math.random() * cards.length);
-  randomCards.push(cards.splice(randomNumber, 1)[0]);
-}
 
-export default randomCards;
+export default cards;
