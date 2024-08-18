@@ -13,7 +13,7 @@ export default function Card({ result, backImageUrl, frontImageUrl, color, backg
 
   return (
     <button onClick={handleClick}>
-      <img src={imageUrl} alt="カード" width={80} />
+      <img src={imageUrl} alt="カード" width={300} height={440} />
       <span className={isButtonActive ? "active" : ""} style={{ color: color, backgroundColor: backgroundColor }}>
         {result}
       </span>
