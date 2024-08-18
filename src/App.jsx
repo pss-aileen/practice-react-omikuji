@@ -22,7 +22,7 @@ function App() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 800);
 
     setTimeout(() => {
       const newArray = randomCards.map((card) => {
@@ -38,7 +38,7 @@ function App() {
       }
 
       setRandomCards(newnewArray);
-    }, 500);
+    }, 400);
   }
 
   function flipNotice(id, boolean) {
