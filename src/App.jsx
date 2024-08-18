@@ -14,48 +14,50 @@ function randomNumber() {
   return Math.floor(Math.random() * 4);
 }
 
-console.log("outside App");
-
 function App() {
   const [randomCards, setRandomCards] = useState(initialRandomCards);
-  console.log("App Component Render");
+  const [isLoading, setIsLoading] = useState(false);
 
   function reset() {
-    const newArray = randomCards.map((card) => {
-      card.fliped = false;
-      return card;
-    });
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
 
-    const newnewArray = [];
+    setTimeout(() => {
+      const newArray = randomCards.map((card) => {
+        card.fliped = false;
+        return card;
+      });
 
-    while (newArray[0]) {
-      const randomNumber = Math.floor(Math.random() * newArray.length);
-      newnewArray.push(newArray.splice(randomNumber, 1)[0]);
-    }
+      const newnewArray = [];
 
-    setRandomCards(newnewArray);
-    console.log(randomCards);
+      while (newArray[0]) {
+        const randomNumber = Math.floor(Math.random() * newArray.length);
+        newnewArray.push(newArray.splice(randomNumber, 1)[0]);
+      }
+
+      setRandomCards(newnewArray);
+    }, 500);
   }
 
-  function flipNotice(result, result2) {
-    console.log("flipしたぞ", result, result2);
+  function flipNotice(id, boolean) {
     const newArray = randomCards.map((card) => {
-      if (card["id"] === result) {
-        card.fliped = result2;
+      if (card["id"] === id) {
+        card.fliped = boolean;
         return card;
       }
       return card;
     });
 
     setRandomCards(newArray);
-    console.log(randomCards);
   }
 
   return (
     <div className="wrapper">
       <h1 style={{ color: randomCards[randomNumber()]["color"] }}>FORTUNE</h1>
 
-      <ul>
+      <ul className={isLoading ? "loading" : ""}>
         {randomCards.map((card) => {
           return (
             <li key={card.id}>
@@ -65,7 +67,9 @@ function App() {
         })}
       </ul>
 
-      <button onClick={reset}>りせっと</button>
+      <button onClick={reset} className="reset-button">
+        Reset
+      </button>
 
       <footer>
         <p>

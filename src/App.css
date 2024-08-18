@@ -117,6 +117,45 @@ ul {
   }
 }
 
+ul {
+  position: relative;
+}
+
+ul::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -40px;
+  left: -8px;
+  right: 0;
+  width: calc(100% + 16px);
+  height: calc(100% + 32px + 8px + 8px);
+  transition: opacity 0.3s;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 8px;
+  background: rgb(0 0 0 / 0.9);
+}
+
+ul.loading::after {
+  opacity: 1;
+}
+
+.reset-button {
+  padding: 10px 16px;
+  margin-top: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 999px;
+  border: none;
+  min-width: 160px;
+  transition: opacity 0.3s;
+}
+
+.reset-button:hover {
+  opacity: 0.6;
+}
+
 footer {
   font-size: 14px;
   margin-top: 32px;
