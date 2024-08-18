@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-export default function Card({ result, backImageUrl, frontImageUrl, color, backgroundColor }) {
-  const [isButtonActive, setIsButtonActive] = useState(false);
+export default function Card({ result, backImageUrl, frontImageUrl, color, backgroundColor, fliped }) {
+  // const [isButtonActive, setIsButtonActive] = useState(false);
+  const [isButtonActive, setIsButtonActive] = useState(fliped);
   function handleClick() {
     setIsButtonActive((boolean) => (boolean ? false : true));
   }
@@ -26,4 +27,5 @@ Card.propTypes = {
   frontImageUrl: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
+  fliped: PropTypes.bool,
 };
