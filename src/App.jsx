@@ -42,6 +42,13 @@ const cards = [
   },
 ];
 
+const randomCards = [];
+
+while (cards[0]) {
+  const randomNumber = Math.floor(Math.random() * cards.length);
+  randomCards.push(cards.splice(randomNumber, 1)[0]);
+}
+
 function App() {
   const [result, setResult] = useState("おみくじ結果");
 
@@ -56,7 +63,7 @@ function App() {
       <p>{result}</p>
 
       <ul>
-        {cards.map((card) => {
+        {randomCards.map((card) => {
           return (
             <li key={card.id}>
               <Card result={card.result} backImageUrl={card.backImageUrl} frontImageUrl={card.frontImageUrl} onUpdate={update} />

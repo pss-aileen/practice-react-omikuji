@@ -1,15 +1,18 @@
 // import React from "react";
-// import cardBack from "./../assets/card_back.png";
+
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 export default function Card({ result, onUpdate, backImageUrl, frontImageUrl }) {
-  const handleClick = () => onUpdate(result);
+  // const handleClick = () => onUpdate(result);
+  const [imageUrl, setImageUrl] = useState(backImageUrl);
+  function handleClick() {
+    onUpdate(result);
+    setImageUrl((url) => (url === backImageUrl ? frontImageUrl : backImageUrl));
+  }
   return (
     <button onClick={handleClick}>
-      <img src={backImageUrl} alt="カード" width={80} />
-      <img src={frontImageUrl} alt="カード" width={80} />
-      <br />
-      {result}
+      <img src={imageUrl} alt="カード" width={80} />
     </button>
   );
 }
