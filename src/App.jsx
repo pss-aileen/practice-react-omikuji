@@ -33,7 +33,16 @@ function App() {
       const randomNumber = Math.floor(Math.random() * currentCards.length);
       initialRandomCards.push(currentCards.splice(randomNumber, 1)[0]);
     }
-    setRandomCards(initialRandomCards);
+
+    const newArray = initialRandomCards.map((card) => {
+      card.fliped = false;
+      card.result = "変化だ！";
+      return card;
+    });
+
+    console.log(newArray);
+
+    setRandomCards(newArray);
     console.log("handleClickReset");
   }
 
