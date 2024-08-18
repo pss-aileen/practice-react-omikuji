@@ -28,6 +28,10 @@ function App() {
           <a href="https://github.com/pss-aileen" style={{ color: randomCards[randomNumber()]["color"] }}>
             Aileen
           </a>
+          ,&nbsp;
+          <a href="https://github.com/practice-react-omikuji" style={{ color: randomCards[randomNumber()]["color"] }}>
+            GitHub
+          </a>
         </p>
         <p>
           materials from&nbsp;
