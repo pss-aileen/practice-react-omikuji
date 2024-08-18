@@ -19,7 +19,6 @@ body {
 
 .wrapper {
   max-width: 480px;
-  /* margin: 48px auto 0; */
 
   text-align: center;
 }
@@ -38,7 +37,6 @@ ul {
   justify-content: center;
 
   li {
-    /* flex: 1; */
     width: calc((100% - 16px * 4) / 5);
     text-align: center;
   }
