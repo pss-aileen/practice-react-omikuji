@@ -10,10 +10,6 @@ function randomNumber() {
 const appCards = [...cards];
 
 function App() {
-  console.log("App Component");
-  console.log(appCards);
-
-
   return (
     <div className="wrapper">
       <h1 style={{ color: appCards[randomNumber()]["color"] }}>FORTUNE</h1>

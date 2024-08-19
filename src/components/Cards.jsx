@@ -12,7 +12,6 @@ while (cardsCards[0]) {
 }
 
 export default function Cards() {
-  console.log("Cards Component");
   const [randomCards, setRandomCards] = useState(initialRandomCards);
   const [isLoading, setIsLoading] = useState(false);
   function flipNotice(id, boolean) {
