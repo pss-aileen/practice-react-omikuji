@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export default function Card({ result, backImageUrl, frontImageUrl, color, backgroundColor, fliped, flipNotice, id }) {
+  console.log("Card Component", id);
   function handleClick() {
     flipNotice(id, !fliped);
   }
